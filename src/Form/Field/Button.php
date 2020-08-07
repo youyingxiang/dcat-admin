@@ -8,18 +8,11 @@ class Button extends Field
 {
     protected $class = 'btn-primary';
 
-    public function class(string $class)
+    public function info()
     {
-        $this->class = $class;
+        $this->class = 'btn-info';
 
         return $this;
-    }
-
-    public function variables()
-    {
-        $this->addVariables(['buttonClass' => $this->class]);
-
-        return parent::variables();
     }
 
     public function on($event, $callback)

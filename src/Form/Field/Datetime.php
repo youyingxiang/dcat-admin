@@ -8,7 +8,7 @@ class Datetime extends Date
 
     public function render()
     {
-        $this->defaultAttribute('style', 'width: 200px;flex:none');
+        $this->defaultAttribute('style', 'width: 200px');
 
         return parent::render();
     }

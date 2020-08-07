@@ -39,7 +39,7 @@ class Date extends Text
         $this->script = "$('{$this->getElementClassSelector()}').datetimepicker(".json_encode($this->options).');';
 
         $this->prepend('<i class="fa fa-calendar fa-fw"></i>')
-            ->defaultAttribute('style', 'width: 200px;flex:none');
+            ->defaultAttribute('style', 'width: 200px');
 
         return parent::render();
     }

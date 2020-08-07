@@ -45,15 +45,9 @@ class LogController extends Controller
 
             $grid->input->responsive()->display(function ($input) {
                 $input = json_decode($input, true);
-
-                if (empty($input)) {
-                    return;
-                }
-
                 $input = Arr::except($input, ['_pjax', '_token', '_method', '_previous_']);
-
                 if (empty($input)) {
-                    return;
+                    return '';
                 }
 
                 return '<pre class="dump">'.json_encode($input, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE).'</pre>';

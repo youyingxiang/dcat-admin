@@ -6,7 +6,7 @@
 
         <span name="{{$column}}"></span> {{-- 用于显示错误信息 --}}
 
-        <div class="has-many-{{$column}}" >
+        <div id="has-many-{{$column}}" >
             <table class="table table-has-many has-many-{{$column}}">
                 <thead>
                 <tr>

@@ -127,13 +127,10 @@ function extend(Dcat) {
 
         loadingId = 'ld-'+Dcat.helpers.random();
 
-        let loading = `<span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>`;
-        let btnClass = ['btn', 'layui-layer-btn0', 'layui-layer-btn1'];
+        let loading = LOADING_SVG[0].replace('{color}', 'currentColor').replace('{width}', '50px;height:11px;');
 
-        for (let i in btnClass) {
-            if ($this.hasClass(btnClass[i])) {
-                loading = LOADING_SVG[0].replace('{color}', 'currentColor').replace('{width}', '50px;height:11px;');
-            }
+        if(! $this.hasClass('btn')) {
+            loading = `<span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span> Loading...`;
         }
 
         return $this

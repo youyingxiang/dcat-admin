@@ -20,8 +20,6 @@ class Mobile extends Text
     {
         $this->inputmask($this->options);
 
-        $this->defaultAttribute('style', 'width: 160px;flex:none');
-
         $this->prepend('<i class="feather icon-smartphone"></i>');
 
         return parent::render();

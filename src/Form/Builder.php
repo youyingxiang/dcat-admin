@@ -151,11 +151,6 @@ class Builder
     protected $stepBuilder;
 
     /**
-     * @var array
-     */
-    protected $confirm = [];
-
-    /**
      * Builder constructor.
      *
      * @param Form $form
@@ -279,20 +274,6 @@ class Builder
     public function stepBuilder()
     {
         return $this->stepBuilder;
-    }
-
-    /**
-     * @param string $title
-     * @param string $content
-     *
-     * @return $this
-     */
-    public function confirm(?string $title = null, ?string $content = null)
-    {
-        $this->confirm['title'] = $title;
-        $this->confirm['content'] = $content;
-
-        return $this;
     }
 
     /**
@@ -506,11 +487,7 @@ class Builder
     public function field($name)
     {
         $field = $this->fields->first(function (Field $field) use ($name) {
-            if (is_array($field->column())) {
-                return in_array($name, $field->column(), true);
-            }
-
-            return $field === $name || $field->column() === $name;
+            return $field === $name || $field->column() == $name;
         });
 
         if (! $field) {
@@ -901,13 +878,10 @@ EOF;
      */
     protected function addSubmitScript()
     {
-        $confirm = json_encode($this->confirm);
-
         Admin::script(
             <<<JS
 $('#{$this->getElementId()}').form({
     validate: true,
-     confirm: {$confirm},
 });
 JS
         );

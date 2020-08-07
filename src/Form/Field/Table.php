@@ -65,17 +65,18 @@ class Table extends HasMany
 
     protected function prepareInputValue($input)
     {
-        return collect($this->buildNestedForm()->prepare($input))
-            ->filter(function ($item) {
-                return empty($item[NestedForm::REMOVE_FLAG_NAME]);
-            })
-            ->transform(function ($item) {
+        $form = $this->buildNestedForm();
+        $prepare = $form->prepare($input);
+
+        return array_values(
+            collect($prepare)->reject(function ($item) {
+                return ($item[NestedForm::REMOVE_FLAG_NAME] ?? null) == 1;
+            })->map(function ($item) {
                 unset($item[NestedForm::REMOVE_FLAG_NAME]);
 
                 return $item;
-            })
-            ->values()
-            ->toArray();
+            })->toArray()
+        );
     }
 
     public function value($value = null)

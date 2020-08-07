@@ -6,7 +6,7 @@
 
 <hr style="margin-top: 0px;">
 
-<div class="has-many-{{$column}}">
+<div id="has-many-{{$column}}" class="has-many-{{$column}}">
 
     <div class="has-many-{{$column}}-forms">
 

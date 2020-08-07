@@ -1117,16 +1117,6 @@ class Field implements Renderable
         ]);
     }
 
-    protected function isCreating()
-    {
-        return request()->isMethod('POST');
-    }
-
-    protected function isEditing()
-    {
-        return request()->isMethod('PUT');
-    }
-
     /**
      * Get view of this field.
      *

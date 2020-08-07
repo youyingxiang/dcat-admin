@@ -144,8 +144,6 @@ JS
      */
     public function inputmask($options)
     {
-        Admin::js('@jquery.inputmask');
-
         $options = $this->jsonEncodeOptions($options);
 
         $this->script = "$('{$this->getElementClassSelector()}').inputmask($options);";

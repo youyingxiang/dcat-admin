@@ -20,8 +20,6 @@ class HandleFormController
             return $form->failedAuthorization();
         }
 
-        $form->form();
-
         if ($errors = $form->validate($request)) {
             return $form->validationErrorsResponse($errors);
         }

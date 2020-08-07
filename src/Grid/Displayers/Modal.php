@@ -11,6 +11,8 @@ class Modal extends AbstractDisplayer
 {
     protected $title;
 
+    protected $renderable;
+
     public function title(string $title)
     {
         $this->title = $title;
